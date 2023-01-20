@@ -6,7 +6,7 @@ const Forgotpasword = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <sesction>
+    <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
@@ -60,7 +60,7 @@ const Forgotpasword = () => {
           </form>
         </div>
       </div>
-    </sesction>
+    </section>
   );
 };
 
