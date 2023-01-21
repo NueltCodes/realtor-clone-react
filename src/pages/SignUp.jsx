@@ -26,7 +26,7 @@ const SignUp = () => {
   };
   const { name, email, password } = formData;
 
-  const onSubmit = async (e) => {
+  const onSignUp = async (e) => {
     e.preventDefault();
 
     try {
@@ -49,13 +49,9 @@ const SignUp = () => {
       await setDoc(doc(db, "users", user.uid), formDataCopy);
       navigate("/");
       toast.success("Sign up was successful");
-      console.log(user);
     } catch (error) {
       toast.error("something wrong");
 
-      if ((name, email, password < 1)) {
-        toast.error("fields must not be empty");
-      }
       if (password.length < 6) {
         toast.error("password must not be less than 6 keys");
       }
@@ -73,11 +69,12 @@ const SignUp = () => {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSignUp}>
             <input
               type="text"
               id="name"
               value={name}
+              required
               onChange={onChange}
               placeholder="Full name"
               className="w-full px-4 placeholder:text-gray-400 py-2 mb-6 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
@@ -87,6 +84,7 @@ const SignUp = () => {
               type="email"
               id="email"
               value={email}
+              required
               onChange={onChange}
               placeholder="Email Address"
               className="w-full px-4 py-2 mb-6 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
@@ -97,6 +95,7 @@ const SignUp = () => {
                 type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
+                required
                 onChange={onChange}
                 placeholder="Password"
                 className="w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
