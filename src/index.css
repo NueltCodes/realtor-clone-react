@@ -5,3 +5,12 @@
 body {
   background-color: rgb(240, 253, 244);
 }
+
+@layer components {
+  .optionButton {
+    @apply px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-200 ease-in-out w-full;
+  }
+  .inputsCss {
+    @apply w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-200 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600;
+  }
+}
