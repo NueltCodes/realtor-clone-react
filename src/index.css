@@ -5,7 +5,13 @@
 body {
   background-color: rgb(240, 253, 244);
 }
+.swiper-button-next::after .swiper-button-prev::after {
+  color: #a8dadc !important;
+}
 
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #a8dadc;
+}
 @layer components {
   .optionButton {
     @apply px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-200 ease-in-out w-full;
