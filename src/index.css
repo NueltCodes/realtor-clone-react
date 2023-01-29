@@ -8,6 +8,14 @@ body {
 .swiper-button-next::after .swiper-button-prev::after {
   color: #a8dadc !important;
 }
+/* This is used to hide the scrollbar in chrome browser */
+html ::-webkit-scrollbar {
+  display: none;
+}
+/* This is used to hide the scrollbar in safari browser */
+html {
+  scrollbar-width: none;
+}
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background: #a8dadc;

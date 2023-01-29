@@ -430,6 +430,7 @@ const CreateListing = () => {
           <p className="text-gray-600">
             The first image will be the cover (max 6)
           </p>
+
           <input
             type="file"
             id="images"
@@ -439,6 +440,9 @@ const CreateListing = () => {
             required
             className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-200 ease-in-out focus:bg-white focus:border-slate-600"
           />
+          <p className="text-gray-600">
+            The image frame size is an height of (400px)
+          </p>
         </div>
         <button
           type="submit"
