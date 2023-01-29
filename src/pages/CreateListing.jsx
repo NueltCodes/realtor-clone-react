@@ -153,7 +153,7 @@ const CreateListing = () => {
       [...images].map((image) => storeImage(image))
     ).catch((error) => {
       setLoading(false);
-      toast.error("Images not uploaded");
+      toast.error("Images not uploaded image size must be below (3mb)");
       return;
     });
 
