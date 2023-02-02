@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import OAuth from "../components/OAuth";
-
+import forgottenPassword from "../assets/forgot.png";
 const Forgotpasword = () => {
   const [email, setEmail] = useState("");
   const forgotPassword = async (e) => {
@@ -22,10 +22,10 @@ const Forgotpasword = () => {
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
-        <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
+      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto mb-12">
+        <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6 lg:mb-0">
           <img
-            src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
+            src={forgottenPassword}
             alt="Key"
             className="w-full rounded-2xl "
           />
@@ -38,7 +38,7 @@ const Forgotpasword = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
-              className="w-full px-4 py-2 mb-6 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
+              className="w-full px-4 py-2 mb-6 text-xl placeholder:text-gray-400 text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
             />
 
             <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">

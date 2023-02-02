@@ -40,14 +40,16 @@ const Profile = () => {
     navigate("/");
   };
 
-  const onSubmit = async () => {
+  async function onSubmit() {
     try {
       if (auth.currentUser.displayName !== name) {
-        // we are updating the display in firebase auth
+        //update display name in firebase auth
         await updateProfile(auth.currentUser, {
           displayName: name,
         });
-        // now we update the name in the fireStore
+
+        // update name in the firestore
+
         const docRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(docRef, {
           name,
@@ -55,9 +57,9 @@ const Profile = () => {
       }
       toast.success("Profile details updated");
     } catch (error) {
-      toast.error("could not update the profile details");
+      toast.error("Could not update the profile details");
     }
-  };
+  }
 
   useEffect(() => {
     async function fetchUserListings() {

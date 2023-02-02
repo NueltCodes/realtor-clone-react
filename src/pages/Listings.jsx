@@ -1,6 +1,6 @@
 import { doc, getDoc } from "firebase/firestore";
-import React, { useEffect } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { db } from "../firebase";
@@ -24,7 +24,7 @@ import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
-const Listings = () => {
+export default function Listing() {
   const auth = getAuth();
   const params = useParams();
   const [listing, setListing] = useState(null);
@@ -32,7 +32,6 @@ const Listings = () => {
   const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const [contactLandlord, setContactLandlord] = useState(false);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
-
   useEffect(() => {
     async function fetchListing() {
       const docRef = doc(db, "listings", params.listingId);
@@ -42,13 +41,12 @@ const Listings = () => {
         setLoading(false);
       }
     }
+
     fetchListing();
   }, [params.listingId]);
-
   if (loading) {
     return <Spinner />;
   }
-
   return (
     <main>
       <Swiper
@@ -64,8 +62,8 @@ const Listings = () => {
             <div
               className="relative w-full overflow-hidden h-[400px]"
               style={{
-                background: `url(${listing.imgUrls[index]}) center no-repeat`,
-                backgroundSize: "cover",
+                background: `url(${listing.imgUrls[index]}) center black no-repeat`,
+                backgroundSize: "contain",
               }}
             ></div>
           </SwiperSlide>
@@ -102,8 +100,8 @@ const Listings = () => {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" ? " / month" : ""}
           </p>
-          <p className="flex items-center mt-6 mb-3 font-semibold">
-            <FaMapMarkerAlt className="text-green-700 mr-1" />
+          <p className="flex mt-6 mb-3 font-semibold">
+            <FaMapMarkerAlt size={16} className="text-green-700  mr-1 mt-1" />
             {listing.address}
           </p>
           <div className="flex justify-start items-center space-x-4 w-[75%]">
@@ -138,7 +136,7 @@ const Listings = () => {
               {listing.furnished ? "Furnished" : "Not furnished"}
             </li>
           </ul>
-          {listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
+          {listing?.userRef !== auth.currentUser?.uid && !contactLandlord && (
             <div className="mt-6">
               <button
                 onClick={() => setContactLandlord(true)}
@@ -173,6 +171,4 @@ const Listings = () => {
       </div>
     </main>
   );
-};
-
-export default Listings;
+}

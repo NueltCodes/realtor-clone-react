@@ -1,29 +1,37 @@
 import { doc, getDoc } from "firebase/firestore";
-import React, { useEffect } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
 
-const Contact = ({ userRef, listing }) => {
+export default function Contact({ userRef, listing }) {
   const [landlord, setLandlord] = useState(null);
   const [message, setMessage] = useState("");
-
-  const onChange = (e) => {
-    setMessage(e.target.value);
-  };
-
   useEffect(() => {
     async function getLandlord() {
-      const docRef = doc(db, "user", userRef);
+      const docRef = doc(db, "users", userRef);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setLandlord(docSnap.data());
       } else {
-        toast.error("could not get landlord data");
+        toast.error("Could not get landlord data");
       }
     }
     getLandlord();
   }, [userRef]);
+  function onChange(e) {
+    setMessage(e.target.value);
+  }
+
+  const submit = () => {
+    if (message === "") {
+      toast.error("You can't send an empty message");
+      return;
+    } else {
+      setMessage("");
+      toast.success("Email successful sent");
+    }
+  };
 
   return (
     <>
@@ -42,20 +50,20 @@ const Contact = ({ userRef, listing }) => {
               className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600"
             ></textarea>
           </div>
-          <a
+          {/* Commented this out so as to avoid spaming*/}
+          {/* <a
             href={`mailto:${landlord.email}?Subject=${listing.name}&body=${message}`}
+          > */}
+          <button
+            onClick={submit}
+            className="px-7 py-3 bg-blue-600 text-white rounded text-sm uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full text-center mb-6"
+            type="button"
           >
-            <button
-              className="px-7 py-3 bg-blue-600 text-white rounded text-sm uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full text-center mb-6"
-              type="button"
-            >
-              Send Message
-            </button>
-          </a>
+            Send Message
+          </button>
+          {/* </a> */}
         </div>
       )}
     </>
   );
-};
-
-export default Contact;
+}

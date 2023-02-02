@@ -14,6 +14,9 @@ import PrivateRoutes from "./components/PrivateRoutes";
 import CreateListing from "./pages/CreateListing";
 import EditListing from "./pages/EditListing";
 import Listings from "./pages/Listings";
+import Category from "./pages/Category";
+import Furnished from "./pages/Furnished";
+import Empty from "./pages/Empty";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/furnished" element={<Furnished />} />
+          <Route path="/empty" element={<Empty />} />
+          <Route path="/category/:categoryName" element={<Category />} />
           <Route
             path="/category/:categoryName/:listingId"
             element={<Listings />}

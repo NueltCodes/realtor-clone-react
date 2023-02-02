@@ -6,8 +6,9 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { db } from "../firebase";
 import { getAuth } from "firebase/auth";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import registerImg from "../assets/register.png";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,13 +61,9 @@ const SignUp = () => {
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
-        <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
-          <img
-            src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
-            alt="Key"
-            className="w-full rounded-2xl "
-          />
+      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto mb-12">
+        <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6 lg:mb-0">
+          <img src={registerImg} alt="Key" className="w-full rounded-2xl " />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
           <form onSubmit={onSignUp}>
@@ -76,7 +73,7 @@ const SignUp = () => {
               value={name}
               required
               onChange={onChange}
-              placeholder="Full name"
+              placeholder="Name"
               className="w-full px-4 placeholder:text-gray-400 py-2 mb-6 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
             />
 
@@ -87,7 +84,7 @@ const SignUp = () => {
               required
               onChange={onChange}
               placeholder="Email Address"
-              className="w-full px-4 py-2 mb-6 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
+              className="w-full px-4 py-2 mb-6 text-xl placeholder:text-gray-400 text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
             />
 
             <div className="relative mb-6">
@@ -98,7 +95,7 @@ const SignUp = () => {
                 required
                 onChange={onChange}
                 placeholder="Password"
-                className="w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
+                className="w-full px-4 py-2 text-xl placeholder:text-gray-400 text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
               />
               {showPassword ? (
                 <AiFillEyeInvisible

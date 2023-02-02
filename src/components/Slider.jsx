@@ -62,10 +62,10 @@ const Slider = () => {
               >
                 <div
                   style={{
-                    background: `url(${data.imgUrls[0]}) center, no-repeat`,
-                    backgroundSize: "cover",
+                    background: `url(${data.imgUrls[0]}) center black no-repeat`,
+                    backgroundSize: "contain",
                   }}
-                  className="relative w-full h-[300px] overflow-hidden"
+                  className="relative w-full h-[300px] lg:h-[400px] overflow-hidden"
                 ></div>
                 <p className="text-[#f1faee] absolute left-1 top-3 font-medium max-w-[90%] bg-[#457b9d] shadow-lg opacity-90 p-2 rounded-br-3xl">
                   {data.name}
