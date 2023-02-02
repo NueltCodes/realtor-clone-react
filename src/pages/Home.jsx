@@ -9,7 +9,9 @@ import {
 } from "firebase/firestore";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { MdClose, MdHouse, MdSearch } from "react-icons/md";
+import { FaArrowRight } from "react-icons/fa";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { MdHouse } from "react-icons/md";
 import { Link } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
 import Slider from "../components/Slider";
@@ -163,12 +165,13 @@ const Home = () => {
 
             {rentListings && rentListings.length > 0 && (
               <div className="m-2 mb-6">
-                <h2 className="px-3 text-2xl mt-6 font-semibold">
+                <h2 className="px-3 py-4 bg-black text-white text-2xl mt-6 font-semibold rounded lg:w-[335px]">
                   Places for rent
                 </h2>
                 <Link to="/category/rent">
-                  <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
+                  <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out flex items-center font-semibold">
                     Show more places for rent
+                    <BsFillArrowRightCircleFill className="ml-1 text-gray-600 " />
                   </p>
                 </Link>
                 <ul className="sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 mb-6">
@@ -185,12 +188,13 @@ const Home = () => {
 
             {saleListings && saleListings.length > 0 && (
               <div className="m-2 mb-6">
-                <h2 className="px-3 text-2xl mt-6 font-semibold">
+                <h2 className="px-3 py-4 bg-black text-white text-2xl mt-6 font-semibold rounded lg:w-[335px]">
                   Places for sale
                 </h2>
                 <Link to="/category/sale">
-                  <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
+                  <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out flex items-center font-semibold">
                     Show more places for sale
+                    <BsFillArrowRightCircleFill className="ml-1 text-gray-600 " />
                   </p>
                 </Link>
 
