@@ -31,14 +31,14 @@ const Header = () => {
           <img
             src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
             alt="logo"
-            className="h-5 cursor-pointer"
+            className="h-5 cursor-pointer sm:w-[150px] w-[90px]"
             onClick={() => navigate("/")}
           />
         </div>
         <div>
           <ul className="flex space-x-10">
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+              className={`cursor-pointer py-3 sm:text-sm text-[12px] font-semibold text-gray-400 border-b-[3px] border-b-transparent   ${
                 pathMatchRoute("/") &&
                 "text-black border-b-red-500 transition duration-700 ease-in-out"
               }`}
@@ -47,7 +47,7 @@ const Header = () => {
               Home
             </li>
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+              className={`cursor-pointer py-3 sm:text-sm text-[12px] font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                 pathMatchRoute("/offers") &&
                 "text-black border-b-red-500 transition duration-700 ease-in-out"
               }`}
@@ -56,7 +56,7 @@ const Header = () => {
               Offers
             </li>
             <li
-              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+              className={`cursor-pointer py-3 sm:text-sm text-[12px] font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                 (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) &&
                 "text-black border-b-red-500 transition duration-700 ease-in-out"
               }`}

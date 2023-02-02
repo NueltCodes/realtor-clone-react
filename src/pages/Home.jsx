@@ -119,47 +119,28 @@ const Home = () => {
       ) : offerListings && offerListings.length > 0 ? (
         <>
           <div className="max-w-6xl mx-auto pt-4 space-y-6">
-            <div
-              onClick={() => setPremium(true)}
-              className="flex items-center bg-gray-200 w-[44%] mx-auto mt-4 rounded-3xl shadow-md hover:shadow-xl  overflow-hidden transition-shadow duration-200 cursor-pointer"
-            >
-              <div className="mt-4 flex px-2 py-4 rounded-3xl  bg-gray-200 w-full"></div>
-              <div className="px-4 text-gray-400">
-                <MdSearch className="text-3xl" />
-              </div>
-            </div>
-            {premium && (
-              <div className="flex items-center justify-center font-semibold">
-                Upgrade to premium to use the search input{" "}
-                <MdClose
-                  className="cursor-pointer ml-1 bg-red-600 text-white flex items-center justify-center rounded-full m-3"
-                  onClick={() => setPremium(false)}
-                />
-              </div>
-            )}
-
-            <div className="flex items-center justify-center gap-28 pt-6 pb-6">
-              <div className="w-[165px]">
-                <Link to="/furnished">
-                  <p className="px-3 text-sm  flex justify-center items-center text-black bg-white font-bold hover:text-gray-500 shadow-md hover:shadow-sm py-3 rounded-full w-[165px] transition duration-300 ease-in-out">
-                    Furnished Houses
-                    <MdHouse className="ml-1" />
-                  </p>
-                </Link>
-              </div>
-
-              <div className="w-[165px] ">
-                <Link to="/empty">
-                  <p className="px-3 text-sm flex justify-center items-center text-black bg-white font-bold hover:text-gray-500 shadow-md hover:shadow-sm py-3 rounded-full w-[165px] transition duration-300 ease-in-out">
-                    Empty Houses
-                    <MdHouse className="ml-1" />
-                  </p>
-                </Link>
-              </div>
-            </div>
-
             {offerListings && offerListings.length > 0 && (
               <div className="m-2 mb-6">
+                <div className="flex items-center  justify-center sm:gap-36 gap-14 pt-6">
+                  <div>
+                    <Link to="/furnished">
+                      <p className="text-[11px] text-center sm:text-sm lg:text-[18px] font-semibold flex items-center bg-white px-2 py-3 rounded-lg shadow-lg hover:shadow-md hover:text-gray-500 duration-200 ease-in-out">
+                        Furnished Houses
+                        <MdHouse className="ml-1" size={20} />
+                      </p>
+                    </Link>
+                  </div>
+
+                  <div>
+                    <Link to="/empty">
+                      <p className="text-[11px] text-center sm:text-sm lg:text-[18px] font-semibold flex items-center bg-white px-2 py-3 rounded-lg shadow-lg hover:shadow-md hover:text-gray-500 duration-200 ease-in-out">
+                        Empty Houses
+                        <MdHouse className="ml-1" size={20} />
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+
                 <h2 className="px-3 text-2xl mt-6 font-semibold">
                   Recent Offers
                 </h2>
