@@ -76,13 +76,15 @@ const Offers = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-3">
-      <h1 className="text-3xl text-center mt-6 font-bold">Offers</h1>
+      <h1 className="sm:text-3xl text-[18px] text-center mt-6 font-bold">
+        Offers
+      </h1>
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
         <>
           <main>
-            <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6">
               {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}
@@ -104,7 +106,9 @@ const Offers = () => {
           )}
         </>
       ) : (
-        <p>There are no current offers yet</p>
+        <p className="sm:text-3xl text-[18px]">
+          There are no current offers yet
+        </p>
       )}{" "}
     </div>
   );

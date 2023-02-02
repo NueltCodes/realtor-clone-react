@@ -104,8 +104,8 @@ export default function Listing() {
             <FaMapMarkerAlt size={16} className="text-green-700  mr-1 mt-1" />
             {listing.address}
           </p>
-          <div className="flex justify-start items-center space-x-4 w-[75%]">
-            <p className="bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
+          <div className="flex justify-start items-center space-x-4 w-full">
+            <p className="bg-red-800 w-[125px] px-2 max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
               {listing.type === "rent" ? "Rent" : "Sale"}
             </p>
             {listing.offer && (
@@ -114,11 +114,16 @@ export default function Listing() {
               </p>
             )}
           </div>
+          {listing.offer && (
+            <p className="sm:text-3xl text-[18px] mt-3 font-bold">
+              Discount of ${+listing.regularPrice - +listing.discountedPrice}
+            </p>
+          )}
           <p className="mt-3 mb-3">
             <span className="font-semibold">Description - </span>
             {listing.description}
           </p>
-          <ul className="flex items-center space-x-2 sm:space-x-10 text-sm font-semibold mb-6">
+          <ul className="flex flex-wrap gap-y-3 items-center space-x-2 sm:space-x-10 text-sm font-semibold mb-6">
             <li className="flex items-center whitespace-nowrap">
               <FaBed className="text-lg mr-1" />
               {+listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}
